@@ -1,0 +1,259 @@
+* {
+  box-sizing: border-box;
+}
+
+.body {
+  padding: 0;
+  margin: 0;
+}
+
+.header {
+  height: 125px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  background-color: var(--bordo);
+}
+
+@media (max-width: 768px) {
+  .header {
+    height: 100px;
+  }
+}
+
+.headerVisible {
+  display: flex;
+  width: 100%;
+  height: 100px;
+  justify-content: space-between;
+  flex-direction: row;
+  font-family: "Poppins", sans-serif;
+  color: whitesmoke;
+}
+
+@media (max-width: 768px) {
+  .headerVisible {
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.miniHeader {
+  display: flex;
+  width: 100%;
+  height: 25px;
+  justify-content: space-around;
+  flex-direction: row;
+  font-family: "Poppins", sans-serif;
+  color: whitesmoke;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .miniHeader {
+    display: none;
+  }
+}
+
+.headerVisibleLogoContainer {
+  display: flex;
+  height: 100px;
+  width: 15%;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .headerVisibleLogoContainer {
+    width: 35%;
+    max-width: 140px;
+    max-height: 100px;
+    display: none;
+  }
+}
+
+.headerVisibleLogoContainerLogo {
+  max-width: 100%;
+  margin-left: 10px;
+}
+
+@media (max-width: 768px) {
+  .headerVisibleLogoContainerLogo {
+    font-size: 24px;
+  }
+}
+
+.headerLinks {
+  display: flex;
+  height: 100px;
+  width: 70%;
+  text-decoration: none;
+  align-items: center;
+  justify-content: space-around;
+}
+
+@media (max-width: 768px) {
+  .headerLinks {
+    display: none;
+  }
+}
+
+.headerLinksLink {
+  font-size: 24px;
+  text-decoration: none;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+@media (max-width: 768px) {
+  .headerLinksLink {
+    display: none;
+  }
+}
+
+.headerLinksLinkMiniHeader {
+  font-size: 18px;
+  text-decoration: none;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+@media (max-width: 768px) {
+  .headerLinksLinkMiniHeader {
+    display: none;
+  }
+}
+
+.headerVisibleBotonDesplegarContainer {
+  display: flex;
+  height: 100px;
+  width: 20%;
+  align-items: center;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding-right: 40px;
+}
+
+@media (min-width: 769px) {
+  .headerVisibleBotonDesplegarContainer {
+    display: none;
+  }
+}
+
+.headerVisibleBotonDesplegar {
+  background-color: black;
+  padding: 0;
+}
+
+@media (min-width: 769px) {
+  .headerVisibleBotonDesplegar {
+    display: none;
+  }
+}
+
+.headerVisibleBotonDesplegarBarras {
+  background-color: white;
+  border: solid 2px black;
+  width: 36px;
+  height: 8px;
+}
+
+.ventanaLinks {
+  display: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--bordo);
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  font-family: "Montserrat", sans-serif;
+}
+
+@media (min-width: 769px) {
+  .ventanaLinks {
+    display: none;
+  }
+}
+
+.ventanaLinksBotonCerrar {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  background-color: var(--bordo);
+  border: solid 2px black;
+  font-size: 32px;
+}
+
+@media (min-width: 769px) {
+  .ventanaLinksBotonCerrar {
+    position: absolute;
+    display: none;
+  }
+}
+
+.ventanaLinksLink {
+  font-size: 24px;
+  text-decoration: none;
+  color: whitesmoke;
+}
+
+a {
+  cursor: pointer;
+}
+
+.infoRoles {
+  height: 100%;
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .infoRoles {
+    width: 40%;
+  }
+}
+
+.infoRolesName {
+  margin: 0;
+  padding: 0;
+}
+
+.infoRolesImg {
+  height: 75px;
+  width: 75px;
+}
+
+.infoRolesSelectRol {
+  margin: 0;
+  padding: 0;
+  border: white 2px solid;
+  color: var(--verdeSemaforo);
+  background-color: var(--bordo);
+}
+
+.infoRolesCerrarSesion {
+  margin: 0;
+  padding: 0;
+}
+
+.menuDesplegable {
+  display: none;
+  position: absolute;
+  top: 125px;
+  left: 0;
+  background-color: var(--bordo);
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: self-start;
+  height: 300px;
+  width: 300px;
+  color: whitesmoke;
+  font-family: var(--poppins);
+}

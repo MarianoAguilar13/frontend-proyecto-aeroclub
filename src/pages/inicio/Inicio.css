@@ -1,0 +1,60 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  background-color: #111111;
+  color: whitesmoke;
+  min-height: 100vh;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.container-input-button {
+  display: flex;
+  flex-direction: row;
+}
+
+.label {
+  margin-top: 20px;
+}
+
+.movies {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
+  width: 100%;
+  gap: 40px;
+}
+
+.movie {
+  text-align: center;
+}
+
+.movie h3,
+.movie p {
+  margin: 0;
+}
+
+.movie img {
+  border-radius: 8px;
+  margin-top: 16px;
+  width: 200px;
+}

@@ -1,0 +1,21 @@
+.tablaAscociadosAdmin {
+  width: 70%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border: solid 3px black;
+  background-color: var(--celeste);
+  border-radius: 30px;
+  color: whitesmoke;
+  box-shadow: 16px 13px 29px 10px rgba(0, 0, 0, 0.72);
+  -webkit-box-shadow: 16px 13px 29px 10px rgba(0, 0, 0, 0.72);
+  -moz-box-shadow: 16px 13px 29px 10px rgba(0, 0, 0, 0.72);
+}
+
+.tablaAsociadosAdminEncabezado {
+  font-size: 18px;
+  text-decoration: underline;
+}
+
+.tablaAsociadosAdminCabecera {
+  cursor: crosshair;
+}
