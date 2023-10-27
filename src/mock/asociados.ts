@@ -50,4 +50,11 @@ export const asociados: Asociado[] = [
     cuota: "Impaga",
     saldo: -70000.0,
   },
+  {
+    email: "fort@gmail.com",
+    nombreCompleto: "Ricardo Fort",
+    cma: "Vencido",
+    cuota: "Impaga",
+    saldo: 10000000.0,
+  },
 ];
