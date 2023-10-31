@@ -5,20 +5,25 @@ interface Props {
   changeSorting: (sort: SortBy) => void;
   showColors: boolean;
   asociados: Asociado[];
+  setInvertir: any;
+  invertir: boolean;
 }
 
 export function TablaAsociadosPanelAdmin({
   changeSorting,
   showColors,
   asociados,
+  setInvertir,
+  invertir,
 }: Props) {
   return (
-    <table className="tablaAscociadosAdmin" width="100%">
+    <table className="tablaAscociadosAdmin">
       <thead className="tablaAsociadosAdminEncabezado">
         <tr>
           <th
             className="tablaAsociadosAdminCabecera"
             onClick={() => {
+              setInvertir(!invertir);
               changeSorting(SortBy.ASOCIADO);
             }}
           >
@@ -27,6 +32,7 @@ export function TablaAsociadosPanelAdmin({
           <th
             className="tablaAsociadosAdminCabecera"
             onClick={() => {
+              setInvertir(!invertir);
               changeSorting(SortBy.CMA);
             }}
           >
@@ -35,6 +41,7 @@ export function TablaAsociadosPanelAdmin({
           <th
             className="tablaAsociadosAdminCabecera"
             onClick={() => {
+              setInvertir(!invertir);
               changeSorting(SortBy.CUOTA);
             }}
           >
@@ -43,6 +50,7 @@ export function TablaAsociadosPanelAdmin({
           <th
             className="tablaAsociadosAdminCabecera"
             onClick={() => {
+              setInvertir(!invertir);
               changeSorting(SortBy.SALDO);
             }}
           >
@@ -86,6 +94,7 @@ export function TablaAsociadosPanelAdmin({
               </td>
               <td>
                 <button
+                  className="tablaAsociadosButtonVerMas"
                   onClick={() => {
                     console.log("Ir a ver mas");
                   }}

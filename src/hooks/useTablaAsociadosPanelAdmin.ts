@@ -5,6 +5,7 @@ import { asociados } from "../mock/asociados";
 export function useTablaAsociadosPanelAdmin() {
   const [showColors, setShowColors] = useState(false);
   const [sorting, setSorting] = useState<SortBy>(SortBy.NONE);
+  const [invertir, setInvertir] = useState(false);
 
   const toggleColors = () => {
     setShowColors(!showColors);
@@ -15,8 +16,6 @@ export function useTablaAsociadosPanelAdmin() {
   };
 
   const sortedAsociados = useMemo(() => {
-    console.log("calculate sortedUsers");
-
     if (sorting === SortBy.NONE) return asociados;
 
     /*
@@ -27,7 +26,9 @@ export function useTablaAsociadosPanelAdmin() {
     */
 
     if (sorting === SortBy.SALDO) {
-      return asociados.sort((a, b) => a.saldo - b.saldo);
+      return invertir
+        ? asociados.sort((a, b) => a.saldo - b.saldo).reverse()
+        : asociados.sort((a, b) => a.saldo - b.saldo);
     }
 
     const compareProperties: Record<string, (asociado: Asociado) => any> = {
@@ -36,11 +37,18 @@ export function useTablaAsociadosPanelAdmin() {
       [SortBy.CUOTA]: (asociado) => asociado.cuota,
     };
 
-    return asociados.toSorted((a, b) => {
-      const extractProperty = compareProperties[sorting];
-      return extractProperty(a).localeCompare(extractProperty(b));
-    });
-  }, [asociados, sorting]);
+    return invertir
+      ? asociados
+          .toSorted((a, b) => {
+            const extractProperty = compareProperties[sorting];
+            return extractProperty(a).localeCompare(extractProperty(b));
+          })
+          .reverse()
+      : asociados.toSorted((a, b) => {
+          const extractProperty = compareProperties[sorting];
+          return extractProperty(a).localeCompare(extractProperty(b));
+        });
+  }, [asociados, sorting, invertir]);
 
   return {
     toggleColors,
@@ -48,5 +56,7 @@ export function useTablaAsociadosPanelAdmin() {
     showColors,
     handleChangeSort,
     sortedAsociados,
+    setInvertir,
+    invertir,
   };
 }

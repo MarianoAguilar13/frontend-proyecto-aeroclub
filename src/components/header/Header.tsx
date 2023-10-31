@@ -1,10 +1,45 @@
 import { useState } from "react";
 import { useHeader } from "../../hooks/useHeader";
 import "./Header.css";
+import { Rol } from "../../types";
+import Swal from "sweetalert2";
 
 function Header() {
   //aca desestructuro el objeto que retorna del useHeader guardandolo en variables para
   //utilizarlos la page
+
+  const [rol, setRol] = useState<Rol>("Invitado");
+
+  const handleChange = (e: any) => {
+    setRol(e.target.value);
+  };
+
+  const handleClickPanel = (e: any) => {
+    if (rol == "Administrador") {
+      navigate("/panel-administrador", { replace: true });
+    } else {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Solo esta implementado para el rol de administrador",
+      });
+      console.log("No estan cargados los demas perfiles solo el administrador");
+    }
+  };
+
+  const handleClickAsociados = (e: any) => {
+    if (rol == "Administrador") {
+      navigate("/admin-administrar-usuarios", { replace: true });
+    } else {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Solo esta implementado para el rol de administrador",
+      });
+      console.log("No estan cargados los demas perfiles solo el administrador");
+    }
+  };
+
   const {
     openMenu,
     openWindow,
@@ -31,7 +66,9 @@ function Header() {
         </div>
         <div className="headerLinks">
           <a className="headerLinksLink">Inicio</a>
-          <a className="headerLinksLink">Panel de Control</a>
+          <a onClick={handleClickPanel} className="headerLinksLink">
+            Panel de Control
+          </a>
           <a className="headerLinksLink">Contacto</a>
         </div>
         <div className="infoRoles">
@@ -45,6 +82,7 @@ function Header() {
             className="infoRolesSelectRol"
             name="rol"
             id="seleccionar-rol"
+            onChange={handleChange}
           >
             <option value="Asociado">Asociado</option>
             <option value="Administrador">Administrador</option>
@@ -69,7 +107,9 @@ function Header() {
         <a className="headerLinksLinkMiniHeader" onClick={actionMenu}>
           Mi Info
         </a>
-        <a className="headerLinksLinkMiniHeader">Asociados</a>
+        <a onClick={handleClickAsociados} className="headerLinksLinkMiniHeader">
+          Asociados
+        </a>
         <a className="headerLinksLinkMiniHeader">Instructores</a>
         <a className="headerLinksLinkMiniHeader">Aeronaves</a>
         <a className="headerLinksLinkMiniHeader">Turnos</a>
