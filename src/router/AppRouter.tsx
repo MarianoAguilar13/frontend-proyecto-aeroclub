@@ -8,12 +8,16 @@ export const AppRouter = () => {
     <>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<Inicio />}></Route>
+          {/* <Route index element={<Inicio />}></Route> */}
           <Route
             path="panel-administrador"
             element={<PanelAdministradores />}
           />
+          {/* <Route
+          path=""
+          element={</>}></Route> */}
         </Route>
+        <Route path="/inicio" element={<Inicio />}/>
       </Routes>
     </>
   );

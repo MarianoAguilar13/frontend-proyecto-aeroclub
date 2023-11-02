@@ -22,7 +22,7 @@ function Header() {
         <div className="headerVisibleLogoContainer">
           <img
             onClick={() => {
-              navigate("/", { replace: true });
+              navigate("/inicio", { replace: true });
             }}
             className="headerVisibleLogoContainerLogo"
             src="https://drive.google.com/uc?export=view&id=19U8BFR2N0VfapOWtSvoiRSsXvOc6iVdH"
@@ -30,7 +30,10 @@ function Header() {
           />
         </div>
         <div className="headerLinks">
-          <a className="headerLinksLink">Inicio</a>
+          <a className="headerLinksLink" 
+            onClick={() => {
+              navigate("/inicio", { replace: true });
+            }}>Inicio</a>
           <a className="headerLinksLink">Panel de Control</a>
           <a className="headerLinksLink">Contacto</a>
         </div>
