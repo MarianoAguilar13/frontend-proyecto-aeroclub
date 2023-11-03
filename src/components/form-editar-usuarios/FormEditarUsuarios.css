@@ -1,0 +1,78 @@
+.contenedorForm {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  color: black;
+  justify-content: start;
+  align-items: center;
+  align-self: center;
+  height: 90%;
+  width: 100%;
+  font-weight: 400;
+}
+
+@media (max-width: 768px) {
+  .contenedor-form {
+    margin-top: 60px;
+  }
+}
+
+.contenedorFormFieldset {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .contenedorFormFieldset {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.contenedorFormLabel {
+  font-size: 24px;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  text-align: start;
+}
+
+@media (max-width: 768px) {
+  .contenedorFormLabel {
+    width: 80%;
+    text-align: start;
+  }
+}
+
+.contenedorFormInput {
+  width: 100%;
+  height: 45px;
+  background-color: var(--celeste);
+  border: var(--azulOscuro) 5px solid;
+  border-radius: 15px;
+  font-size: 18px;
+  color: whitesmoke;
+  box-shadow: 10px 10px 15px 3px rgba(0, 0, 0, 0.65);
+  -webkit-box-shadow: 10px 10px 15px 3px rgba(0, 0, 0, 0.65);
+  -moz-box-shadow: 10px 10px 15px 3px rgba(0, 0, 0, 0.65);
+}
+
+@media (max-width: 768px) {
+  .contenedorFormInput {
+    width: 80%;
+  }
+}
+
+.contenedorFormButton {
+  width: 150px;
+  height: 45px;
+  background-color: var(--azulClaro);
+  border: var(--celeste) 5px solid;
+  border-radius: 15px;
+  color: black;
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 40px;
+  margin-bottom: 60px;
+}

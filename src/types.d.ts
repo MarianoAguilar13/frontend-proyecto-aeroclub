@@ -12,6 +12,14 @@ export enum SortBy {
   SALDO = "saldo",
 }
 
+export enum SortByTablaAdminUsuarios {
+  NONE = "none",
+  USUARIO = "usuario",
+  DNI = "dni",
+  NOMBRE = "nombre",
+  MAIL = "mail",
+}
+
 export type Asociado = {
   email: string;
   nombreCompleto: string;
@@ -19,6 +27,27 @@ export type Asociado = {
   cuota: "Paga" | "Impaga";
   saldo: number;
 };
+
+export type Usuarios = {
+  nombre: string;
+  apellido: string;
+  nombreCompleto: string;
+  email: string;
+  telefono: number;
+  dni: number;
+  fechaAlta: string;
+  fechaBaja: string;
+  direccion: string;
+  fotoPerfil: string;
+};
+
+export type Rol =
+  | "Asociado"
+  | "Administrador"
+  | "Instructor"
+  | "Mecánico"
+  | "Gestor"
+  | "Invitado";
 
 export type Aeronaves = { modelo: string; patente: string; alerta: Alerta };
 

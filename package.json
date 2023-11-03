@@ -12,14 +12,18 @@
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
+    "@fontsource/roboto": "^5.0.8",
     "@mui/icons-material": "^5.14.16",
+    "@mui/lab": "^5.0.0-alpha.151",
     "@mui/material": "^5.14.16",
+    "@mui/x-data-grid": "^6.17.0",
+    "@mui/x-data-grid-generator": "^6.17.0",
+    "notistack": "^3.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.17.0",
     "recoil": "^0.7.7",
-    "sweetalert2": "^11.7.32",
-    "yarn": "^1.22.19"
+    "sweetalert2": "^11.7.32"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
