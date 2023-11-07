@@ -9,17 +9,32 @@
   background-color: var(--fondoClaro);
 }
 
-.panelAdminContainerCardClima {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  height: 350px;
-  width: 200px;
-  border: 5px solid var(--azulOscuro);
+.panelAdminContainerCardClima{
+  background-color: #e8fcfc;
   border-radius: 20px;
-  background-color: #fff6e0;
-  margin-top: 40px;
+  
+}
+
+.panelAdminContainerClima{
+  padding-top: 50px;
+  padding-bottom: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  
+}
+
+.panelAdminColorClima{
+  width: 100%;
+  background-color: rgb(197, 197, 197);
+}
+
+.panelAdminColorAeronaves{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: rgb(197, 197, 197);
 }
 
 .table--showColors tr:nth-child(odd) {
@@ -40,4 +55,12 @@
   border-radius: 15px;
   border: solid 2px whitesmoke;
   margin-bottom: 20px;
+}
+
+@media (max-width: 485px) {
+
+  .panelAdminContainerClima{
+      display: flex;
+      flex-direction: column;
+  }
 }

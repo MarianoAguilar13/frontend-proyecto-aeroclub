@@ -1,0 +1,10 @@
+.container-ver-info-asociado{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.resaltar{
+    color:#0000ff
+}

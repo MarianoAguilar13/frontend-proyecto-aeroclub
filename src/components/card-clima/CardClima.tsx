@@ -1,95 +1,45 @@
-import { Box, Container, Typography } from "@mui/material";
-import { useState, useEffect } from "react";
+import React, { useEffect } from 'react';
 
-const weatherApiKey = import.meta.env.VITE_WEATHER_API_KEY;
-//const weatherApiKey = "";
-const API_WEATHER = `http://api.weatherapi.com/v1/current.json?key=${weatherApiKey}&lang=es&q=-34.86649,-61.5302`;
-
-function CardClima() {
-  const [city, setCity] = useState("");
-  const [error, setError] = useState({
-    error: false,
-    message: "",
-  });
-  const [loading, setLoading] = useState(false);
-
-  const [weather, setWeather] = useState({
-    city: "",
-    country: "",
-    temperature: 0,
-    condition: "",
-    conditionText: "",
-    icon: "",
-  });
-
-  const fetchApiWeather = async () => {
-    setError({ error: false, message: "" });
-    setLoading(true);
-
-    try {
-      const res = await fetch(API_WEATHER + city);
-      const data = await res.json();
-
-      if (data.error) {
-        throw { message: data.error.message };
-      }
-
-      setWeather({
-        city: data.location.name,
-        country: data.location.country,
-        temperature: data.current.temp_c,
-        condition: data.current.condition.code,
-        conditionText: data.current.condition.text,
-        icon: data.current.condition.icon,
-      });
-    } catch (error: any) {
-      setError({ error: true, message: error.message });
-    } finally {
-      setLoading(false);
-    }
-  };
-
+const CardClima: React.FC = () => {
   useEffect(() => {
-    fetchApiWeather();
+    const script = document.createElement('script');
+    script.src = 'https://metar-taf.com/es/embed-js/AR-0253?u=46051&qnh=hPa&rh=rh&target=EIRSfDfS';
+    script.async = true;
+    script.defer = true;
+    script.crossOrigin = 'anonymous';
+
+    const container = document.getElementById('metartaf-container');
+    if (container) {
+      container.appendChild(script);
+    }
+
+    return () => {
+      if (container) {
+        container.removeChild(script);
+      }
+    };
   }, []);
 
-  /* 
-   
-  */
   return (
-    <Container maxWidth="xs" sx={{ mt: 2 }}>
-      <Box
-        sx={{
-          display: "grid",
-          gap: 2,
-          textAlign: "center",
-        }}
-      >
-        <Typography variant="h4" component="h2">
-          {weather.city}, {weather.country}
-        </Typography>
-        <Box
-          component="img"
-          alt={weather.conditionText}
-          src={weather.icon}
-          sx={{ margin: "0 auto" }}
-        />
-        <Typography variant="h5" component="h3">
-          {weather.temperature} °C
-        </Typography>
-        <Typography variant="h6" component="h4">
-          {weather.conditionText}
-        </Typography>
-      </Box>
-
-      <Typography textAlign="center" sx={{ mt: 2, fontSize: "10px" }}>
-        Powered by:{" "}
-        <a href="https://www.weatherapi.com/" title="Weather API">
-          WeatherAPI.com
-        </a>
-      </Typography>
-    </Container>
+    <div id="metartaf-container">
+    <a
+      href="https://metar-taf.com/es/AR-0253"
+      id="metartaf-EIRSfDfS"
+      style={{
+        fontSize: '18px',
+        fontWeight: 500,
+        color: '#000',
+        width: '300px',
+        height: '435px',
+        display: 'block',
+        padding: '1rem',
+      }}
+    >
+      METAR Lincoln Airport
+    </a>
+  </div>
+  
   );
-}
+};
 
 export { CardClima };

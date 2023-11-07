@@ -35,7 +35,12 @@ function AeronaversAlertaPanelAdmin({ aeronaves }: Prop1) {
       <div className="alertsContainer">
         {aeronaves ? (
           aeronaves.map((aeronave) => {
-            return <AlertaPorAeronave aeronave={aeronave}></AlertaPorAeronave>;
+            return (
+              <AlertaPorAeronave
+                key={aeronave.patente}
+                aeronave={aeronave}
+              ></AlertaPorAeronave>
+            );
           })
         ) : (
           <></>

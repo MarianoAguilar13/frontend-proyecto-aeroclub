@@ -2,6 +2,7 @@ import "./AdminDetallesAsociados.css";
 import { CardMostrarAsociados } from "../../components/card-mostrar-asociados/CardMostrarAsociados";
 import { Usuarios } from "../../types";
 import { useNavigate } from "react-router-dom";
+import Button from "@mui/material/Button";
 
 function AdminDetallesAsociados() {
   const asociado: Usuarios = {
@@ -21,22 +22,13 @@ function AdminDetallesAsociados() {
 
   return (
     <div className="detallesAsociadosContainer">
-      <h3 className="detallesAsociadosTitle">
-        Asociado {asociado.nombreCompleto}
-      </h3>
       <CardMostrarAsociados asociado={asociado}></CardMostrarAsociados>
       <div className="detallesAsociadosContainerButtons">
-        <button
-          onClick={() => {
-            navigate("/admin-editar-usuarios", { replace: true });
-            console.log("Ir a ver mas");
-          }}
-          className="detallesAsociadosButton"
-        >
-          {" "}
-          Editar asociado
-        </button>
-        <button className="detallesAsociadosButton"> Eliminar asociado</button>
+      <Button onClick={() => {
+              navigate("/admin-editar-usuarios", { replace: true });
+              console.log("Ir a ver mas");
+            }} size="small">Editar asociado</Button>
+      <Button sx={{color: "red"}} size="small">Borrar asociado</Button>
       </div>
     </div>
   );

@@ -6,6 +6,8 @@ import AdminAdministrarUsuarios from "../pages/admin-administrar-usuarios/AdminA
 import AdminEditarUsuarios from "../pages/admin-editar-usuarios/AdminEditarUsuarios";
 import AdminDetallesAsociados from "../pages/admin-detalles-asociados/AdminDetallesAsociados";
 import PanelAsociados from "../pages/panel-asociados/PanelAsociados";
+import FormEditUsuario  from "../components/form-edit-usuario/FormEditUsuario";
+
 export const AppRouter = () => {
   return (
     <>

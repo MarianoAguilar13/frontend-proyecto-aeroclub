@@ -1,0 +1,14 @@
+.formulario-editar-usuario{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 15px 0px 15px 0px;
+}
+.fila-formulario-editar-usuario{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}

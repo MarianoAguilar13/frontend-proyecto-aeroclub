@@ -11,26 +11,37 @@ function PanelAsociados() {
 
   return (
     <div className="panelAsociadoContainer">
-      <div className="filaPanelAsociado"> 
-        <div className="panelAsociadoContainerCardClima">
-          <CardClima></CardClima>
+      <div className="panelAsociadoColorClima">
+        <div className="panelAsociadoContainerClima">
+          <div className="panelAdminContainerCardClima">
+            <CardClima></CardClima>
+          </div>
+          <CondicionPista/>
         </div>
-        <CondicionPista/>
       </div>
       
       <div className="filaPanelAsociado"> 
-        {/* Poner componentes de horas (Horas de vuelo solitario y con instructor) */}
-      </div>
-      <div className="filaPanelAsociado">
         <VencimientoCuota></VencimientoCuota>
         <VencimientoCMA></VencimientoCMA>
       </div>
-      <div className="TablaTurnos">
-        <TablaTurnosPanelAsociados />
+      <div className="colorFilaPanelAsociado">
+        <div className="filaPanelAsociado">
+          <VencimientoCuota></VencimientoCuota>
+          <VencimientoCMA></VencimientoCMA>
+        </div>
       </div>
-      <div className="filaPanelAsociado">
-        <TarifaActual></TarifaActual>
-        <SaldoActual></SaldoActual>
+      
+      <div className="colorTablaPanelAsociado">
+        <div className="TablaTurnos">
+          <TablaTurnosPanelAsociados />
+        </div>
+      </div>
+
+      <div className="colorFilaPanelAsociado">
+        <div className="filaPanelAsociado">
+          <TarifaActual></TarifaActual>
+          <SaldoActual></SaldoActual>
+        </div>
       </div>
     </div>
   );

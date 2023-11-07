@@ -7,6 +7,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/DeleteOutlined';
 import SaveIcon from '@mui/icons-material/Save';
 import CancelIcon from '@mui/icons-material/Close';
+import VisibilityIcon from '@mui/icons-material/Visibility';
 import {
   GridRowsProp,
   GridRowModesModel,
@@ -27,6 +28,9 @@ import {
   randomId,
   randomArrayItem,
 } from '@mui/x-data-grid-generator';
+import { Modal} from '@mui/material';
+import VerInfoAsociado from "../ver-info-asociado/VerInfoAsociado";
+import { useState } from 'react';
 
 const roles = ['Market', 'Finance', 'Development'];
 const randomRole = () => {
@@ -40,6 +44,17 @@ const theme = createTheme(
   },
   esES,
 );
+const modalStyle = {
+  position: 'absolute' as 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  p: 4,
+};
 const initialRows: GridRowsProp = [
   { id: 1, apellido: 'Snow', nombre: 'Jon', edad: 35 ,nombreCompleto: 'Snow Jon'},
   { id: 2, apellido: 'Lannister', nombre: 'Cersei', edad: 42 ,nombreCompleto: 'Lannister Cersei'},
@@ -51,6 +66,7 @@ const initialRows: GridRowsProp = [
   { id: 8, apellido: 'Frances', nombre: 'Rossini', edad: 36 ,nombreCompleto: 'Frances Rossini'},
   { id: 9, apellido: 'Roxie', nombre: 'Harvey', edad: 65 ,nombreCompleto: 'Roxie Harvey'},
 ];
+
 
 // ************************************************************************************
 // Esto te permite añadir una tupla a la lista, esta comentado por si lo necesitamos 
@@ -87,6 +103,16 @@ const initialRows: GridRowsProp = [
 export default function TablaAsociadosPanelAdmin() {
   const [rows, setRows] = React.useState(initialRows);
   const [rowModesModel, setRowModesModel] = React.useState<GridRowModesModel>({});
+  
+  // Utilizo este estado para almacenar la informacion que se renderiza en el modal
+  const [verAsociado, setVerAsociado] = useState({});
+
+  // Manejo del modal para ver un asociado
+  const [open, setOpen] = React.useState(false);
+  const handleClose = () => {
+    setOpen(false)
+    setVerAsociado({});
+  };
 
   const handleRowEditStop: GridEventListener<'rowEditStop'> = (params, event) => {
     if (params.reason === GridRowEditStopReasons.rowFocusOut) {
@@ -96,6 +122,11 @@ export default function TablaAsociadosPanelAdmin() {
 
   const handleEditClick = (id: GridRowId) => () => {
     setRowModesModel({ ...rowModesModel, [id]: { mode: GridRowModes.Edit } });
+  };
+
+  const handleVerClick = (id: GridRowId) => () => {
+    setVerAsociado(rows.filter((row) => row.id === id));
+    setOpen(true);
   };
 
   const handleSaveClick = (id: GridRowId) => () => {
@@ -184,15 +215,22 @@ export default function TablaAsociadosPanelAdmin() {
 
         return [
           <GridActionsCellItem
+            icon={<VisibilityIcon />}
+            label="Ver mas"
+            className="textPrimary"
+            onClick={handleVerClick(id)}
+            color="inherit"
+          />,
+          <GridActionsCellItem
             icon={<EditIcon />}
-            label="Edit"
+            label="Editar"
             className="textPrimary"
             onClick={handleEditClick(id)}
             color="inherit"
           />,
           <GridActionsCellItem
             icon={<DeleteIcon />}
-            label="Delete"
+            label="Borrar"
             onClick={handleDeleteClick(id)}
             color="inherit"
           />,
@@ -231,6 +269,17 @@ export default function TablaAsociadosPanelAdmin() {
           }}
         />
       </ThemeProvider>
+      {/* Modal para ver informacion de un asociado */}
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={modalStyle}>
+          <VerInfoAsociado datos={verAsociado}/>
+        </Box>
+      </Modal>
     </Box>
   );
 }
